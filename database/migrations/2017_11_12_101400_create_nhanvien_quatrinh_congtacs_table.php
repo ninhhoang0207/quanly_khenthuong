@@ -18,7 +18,7 @@ class CreateNhanvienQuatrinhCongtacsTable extends Migration
             $table->integer('user_id');
             $table->date('tu_ngay');
             $table->date('den_ngay');
-            $table->string('congviect');
+            $table->string('congviec');
             $table->text('ghichu')->nullable();
             $table->timestamps();
         });

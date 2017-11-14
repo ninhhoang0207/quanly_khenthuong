@@ -20,8 +20,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
+Route::group(['middleware'=>'auth'], function() {
 	Route::group(['prefix'=>'user'], function() {
-		Route::get('', 'Admin\UserController@index')->name('admin.user');
+		Route::get('', 'Admin\UserController@index')->name('user');
+		Route::get('create', 'UserController@create')->name('user.create');
+		Route::post('create', 'UserController@store');
 	});
 });

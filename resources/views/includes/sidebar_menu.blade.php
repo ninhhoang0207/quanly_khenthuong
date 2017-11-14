@@ -63,6 +63,12 @@
 							<li><a href="#">Thêm mới</a></li>
 						</ul>
 					</li>
+					<li><a><i class="fa fa-newspaper-o"></i>Tài khoản <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="{{ route('user') }}">Danh sách</a></li>
+							<li><a href="{{ route('user.create') }}">Thêm mới</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<!-- /sidebar menu -->
