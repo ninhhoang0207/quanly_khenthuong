@@ -13,7 +13,7 @@ class CreateHuyensTable extends Migration
      */
     public function up()
     {
-        Schema::create('huyens', function (Blueprint $table) {
+        Schema::create('huyen', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tinh_id');
             $table->string('ten');
@@ -28,6 +28,6 @@ class CreateHuyensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('huyens');
+        Schema::dropIfExists('huyen');
     }
 }

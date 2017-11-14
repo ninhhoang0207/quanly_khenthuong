@@ -13,7 +13,7 @@ class CreateCuocThiTepdinhkemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuoc_thi_tepdinhkems', function (Blueprint $table) {
+        Schema::create('cuoc_thi_tepdinhkem', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cuocthi_id');
             $table->string('ten_tep');
@@ -29,6 +29,6 @@ class CreateCuocThiTepdinhkemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuoc_thi_tepdinhkems');
+        Schema::dropIfExists('cuoc_thi_tepdinhkem');
     }
 }

@@ -13,7 +13,7 @@ class CreateDanhhieusTable extends Migration
      */
     public function up()
     {
-        Schema::create('danhhieus', function (Blueprint $table) {
+        Schema::create('danhhieu', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
             $table->string('loai_danhhieu');
@@ -30,6 +30,6 @@ class CreateDanhhieusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('danhhieus');
+        Schema::dropIfExists('danhhieu');
     }
 }
