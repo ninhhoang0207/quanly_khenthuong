@@ -13,7 +13,7 @@ class CreateXasTable extends Migration
      */
     public function up()
     {
-        Schema::create('xas', function (Blueprint $table) {
+        Schema::create('xa', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tinh_id');
             $table->integer('huyen_id');
@@ -29,6 +29,6 @@ class CreateXasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('xas');
+        Schema::dropIfExists('xa');
     }
 }

@@ -13,7 +13,7 @@ class CreateNhanvienThongtinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien_thongtins', function (Blueprint $table) {
+        Schema::create('nhanvien_thongtin', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('hoten');
@@ -38,6 +38,6 @@ class CreateNhanvienThongtinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhanvien_thongtins');
+        Schema::dropIfExists('nhanvien_thongtin');
     }
 }

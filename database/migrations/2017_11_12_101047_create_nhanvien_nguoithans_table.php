@@ -13,7 +13,7 @@ class CreateNhanvienNguoithansTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien_nguoithans', function (Blueprint $table) {
+        Schema::create('nhanvien_nguoithan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('quanhe');//vo chong, anh chi em ruot, con cai, bo me
@@ -36,6 +36,6 @@ class CreateNhanvienNguoithansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhanvien_nguoithans');
+        Schema::dropIfExists('nhanvien_nguoithan');
     }
 }

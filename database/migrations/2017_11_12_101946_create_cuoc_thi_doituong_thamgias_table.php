@@ -13,7 +13,7 @@ class CreateCuocThiDoituongThamgiasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuoc_thi_doituong_thamgias', function (Blueprint $table) {
+        Schema::create('cuoc_thi_doituong_thamgia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cuocthi_id');
             $table->smallInteger('doituong_thamgia');//xa huyen ca nhan ban nganh
@@ -30,6 +30,6 @@ class CreateCuocThiDoituongThamgiasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuoc_thi_doituong_thamgias');
+        Schema::dropIfExists('cuoc_thi_doituong_thamgia');
     }
 }

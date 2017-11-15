@@ -13,7 +13,7 @@ class CreateTinhsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tinhs', function (Blueprint $table) {
+        Schema::create('tinh', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTinhsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tinhs');
+        Schema::dropIfExists('tinh');
     }
 }

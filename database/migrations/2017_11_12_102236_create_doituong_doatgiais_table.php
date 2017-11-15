@@ -13,9 +13,11 @@ class CreateDoituongDoatgiaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('doituong_doatgiais', function (Blueprint $table) {
+        Schema::create('doituong_doatgiai', function (Blueprint $table) {
             $table->increments('id');
             $table->smallInteger('doituong');
+            $table->integer('doituong_id');
+            $table->integer('cuocthi_id');
             $table->text('ghichu')->nullable();
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ class CreateDoituongDoatgiaisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doituong_doatgiais');
+        Schema::dropIfExists('doituong_doatgiai');
     }
 }

@@ -13,7 +13,7 @@ class CreateNhanvienQuatrinhCongtacsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nhanvien_quatrinh_congtacs', function (Blueprint $table) {
+        Schema::create('nhanvien_quatrinh_congtac', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->date('tu_ngay');
@@ -31,6 +31,6 @@ class CreateNhanvienQuatrinhCongtacsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhanvien_quatrinh_congtacs');
+        Schema::dropIfExists('nhanvien_quatrinh_congtac');
     }
 }

@@ -13,7 +13,7 @@ class CreateCuocThisTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuoc_this', function (Blueprint $table) {
+        Schema::create('cuoc_thi', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten');
             $table->date('thoihan_thamgia');
@@ -33,6 +33,6 @@ class CreateCuocThisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuoc_this');
+        Schema::dropIfExists('cuoc_thi');
     }
 }
