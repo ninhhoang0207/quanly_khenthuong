@@ -25,3 +25,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
 		Route::get('', 'Admin\UserController@index')->name('admin.user');
 	});
 });
+
+
+Route::get('/nhanvien/profile', 'NhanVienController@index')->name('admin.nhanvien.profile');
+Route::patch('/nhanvien/profile/updateThongTinCaNhan/{nhanvien}', 'NhanVienController@updateThongTinCaNhan')->name('nhanvien.profile.updateThongTinCaNhan');
+Route::patch('/nhanvien/profile/updateThongTinNguoiThan', 'NhanVienController@updateThongTinNguoiThan')->name('nhanvien.profile.updateThongTinNguoiThan');
