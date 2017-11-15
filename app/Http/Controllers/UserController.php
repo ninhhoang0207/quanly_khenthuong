@@ -8,6 +8,7 @@ use App\User;
 use Redirect, Session;
 use Carbon\Carbon;
 use DB;
+use Yajra\Datatables\Facades\Datatables;
 
 class UserController extends Controller
 {
@@ -23,7 +24,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('templates.admin');
+        return view('user.index');
     }
 
     /**
@@ -127,15 +128,11 @@ class UserController extends Controller
         
     }
 
-    public function getUser($is_active = 1) {
-        $users = User::select(['id', 'name', 'email', 'role','created_at'])
-                ->where('is_active',$is_active)
-                ->whereIn('role',['user','admin']);
-           return Datatables::of($users)->editColumn('created_at', function ($user) {
-                        return $user->created_at->format('d/m/Y H:i');
-                    })->filterColumn('created_at', function ($query, $keyword) {
-                        $query->whereRaw("DATE_FORMAT(created_at,'%Y/%m/%d %H:%i') like ?", ["%$keyword%"]);
-                    })->make(true);
-        return $this->whereIn('role',['admin', 'user'])->where('is_active', $is_active)->get();
+    public function getUserNotActive() {
+        return $this->user->getUser(0);
+    }
+
+    public function getUserActived() {
+        return $this->user->getUser(1);
     }
 }

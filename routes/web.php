@@ -22,8 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'], function() {
 	Route::group(['prefix'=>'user'], function() {
-		Route::get('', 'Admin\UserController@index')->name('user');
+		Route::get('', 'UserController@index')->name('user');
 		Route::get('create', 'UserController@create')->name('user.create');
 		Route::post('create', 'UserController@store');
+		Route::post('get-user-not-active', 'UserController@getUserNotActive')->name('user.getUserNotActive');
+		Route::post('get-user-actived', 'UserController@getUserActived')->name('user.getUserActived');
 	});
 });

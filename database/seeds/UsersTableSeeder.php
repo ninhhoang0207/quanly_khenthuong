@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,7 +18,9 @@ class UsersTableSeeder extends Seeder
         		'password'	=>	bcrypt('12345'),
         		'name'		=>	'Admin',
         		'role'		=>	5,
-        		'active'	=>	1,
+        		'is_active'	=>	1,
+                'created_at'=>  Carbon::now(),
+                'updated_at'=>  Carbon::now(),
         	]
         );
     }
