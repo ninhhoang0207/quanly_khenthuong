@@ -25,9 +25,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
 		Route::get('', 'Admin\UserController@index')->name('admin.user');
 	});
 
-	
-});
-Route::group(['prefix' => 'tinh'], function() {
+	Route::group(['prefix' => 'tinh'], function() {
 		Route::get('/','Admin\TinhController@admin_index')->name('admin.tinh.index');
 		Route::get('create','Admin\TinhController@create')->name('admin.tinh.create');
 		Route::post('create','Admin\TinhController@store')->name('admin.tinh.store');
@@ -53,3 +51,14 @@ Route::group(['prefix' => 'tinh'], function() {
 		Route::put('edit/{id?}','Admin\XaController@update')->name('admin.xa.update');
 		Route::get('delete/{id?}','Admin\XaController@delete')->name('admin.xa.delete');
 	});
+
+	Route::group(['prefix' => 'cuocthi'], function() {
+		Route::get('/','Admin\CuocThiController@admin_index')->name('admin.cuocthi.index');
+		Route::get('create','Admin\CuocThiController@create')->name('admin.cuocthi.create');
+		Route::post('create','Admin\CuocThiController@store')->name('admin.cuocthi.store');
+		Route::get('edit/{id?}','Admin\CuocThiController@edit')->name('admin.cuocthi.edit');
+		Route::put('edit/{id?}','Admin\CuocThiController@update')->name('admin.cuocthi.update');
+		Route::get('delete/{id?}','Admin\CuocThiController@delete')->name('admin.cuocthi.delete');
+	});
+});
+

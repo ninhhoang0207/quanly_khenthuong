@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Models\Tinh;
-use App\Models\Huyen;
+use App\Models\CuocThi;
 use Auth;
 use Session;
 use Redirect;
@@ -17,25 +16,25 @@ use Log;
 use Response; 
 use Validator;
 
-class HuyenController extends Controller
+class CuocThiController extends Controller
 {
-     public function admin_index()
+    public function admin_index()
     {	
-    	$data = Huyen::all();
+    	$data = CuocThi::all();
     	$this->viewData = array(
     		'data' => $data 
     	);
-        return view('admin.huyen.index', $this->viewData);
+        return view('admin.cuocthi.index', $this->viewData);
     }
 
 
 public function create()
     {   
-    	$tinh = Tinh::all();
+    	$tinh = CuocThi::all();
     	$this->viewData = array(
     		'tinh' => $tinh 
     	);
-        return view('admin.huyen.create',$this->viewData);
+        return view('admin.cuocthi.create',$this->viewData);
     }
 public function store(Request $request)
     {   
@@ -55,10 +54,10 @@ public function store(Request $request)
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data = Huyen::create( $data );
+                $data = CuocThi::create( $data );
                 DB::commit();
                 Session::flash('success','Success!');
-                return redirect(route('admin.huyen.index'));
+                return redirect(route('admin.cuocthi.index'));
             }
         } catch (Exception $e) {
              Session::flash('error','Opp! Please try again.Error!');
@@ -66,34 +65,34 @@ public function store(Request $request)
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $data = Huyen::find( $id );
-        $tinh = Tinh::all();
-        $this ->viewData = array(
-            'data' => $data, 
-            'tinh' => $tinh
-            );
-        return view ( 'admin.huyen.edit', $this->viewData );
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function edit($id)
+    // {
+    //     $data = Huyen::find( $id );
+    //     $tinh = Tinh::all();
+    //     $this ->viewData = array(
+    //         'data' => $data, 
+    //         'tinh' => $tinh
+    //         );
+    //     return view ( 'admin.huyen.edit', $this->viewData );
+    // }
 
   
-    public function update( Request $request, $id )
-    {
-        $data = $request->all();
-        unset($data['_token']);
-        unset($data['_method']);
-            $huyen = Huyen::where('id', $id)->first();
-            $huyen->update($data);
-            Session::flash( 'success', 'Sửa thành công !!!!!');
-            return redirect(route('admin.huyen.index'));
-        }
+    // public function update( Request $request, $id )
+    // {
+    //     $data = $request->all();
+    //     unset($data['_token']);
+    //     unset($data['_method']);
+    //         $huyen = CuocThi::where('id', $id)->first();
+    //         $huyen->update($data);
+    //         Session::flash( 'success', 'Sửa thành công !!!!!');
+    //         return redirect(route('admin.huyen.index'));
+    //     }
 
 //     }
 //     /**
