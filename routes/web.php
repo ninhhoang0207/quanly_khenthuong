@@ -30,3 +30,5 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function() {
 Route::get('/nhanvien/profile', 'NhanVienController@index')->name('admin.nhanvien.profile');
 Route::patch('/nhanvien/profile/updateThongTinCaNhan/{nhanvien}', 'NhanVienController@updateThongTinCaNhan')->name('nhanvien.profile.updateThongTinCaNhan');
 Route::patch('/nhanvien/profile/updateThongTinNguoiThan', 'NhanVienController@updateThongTinNguoiThan')->name('nhanvien.profile.updateThongTinNguoiThan');
+Route::patch('/nhanvien/profile/updateQuaTrinhCongTac', 'NhanVienController@updateQuaTrinhCongTac')->name('nhanvien.profile.updateQuaTrinhCongTac');
+Route::get('/nhanvien/cuocthi/download/{cuocthi}', 'NhanVienController@download')->name('nhanvien.profile.download');

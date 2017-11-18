@@ -1749,13 +1749,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                             @include('admin.nhanvien.thongtinnguoithan',['nguoithans'=>$nguoithans])
                                             <!-- Thông tin người thân -->
                                             <!-- Quá trình công tác -->
-                                            @include('admin.nhanvien.quatrinhcongtac')
+                                            @include('admin.nhanvien.quatrinhcongtac',['quatrinhcongtac'=>$quatrinhcongtac])
                                             <!-- Quá trình công tác -->
                                             <!-- Thành tích -->
                                             @include('admin.nhanvien.thanhtich')
                                             <!-- Thành tích -->
                                             <!-- Thông báo -->
-                                            @include('admin.nhanvien.thongbao')
+                                            @include('admin.nhanvien.thongbao',['thongbao'=>$thongbao])
                                             <!-- Thông báo -->
                                         </div>
                                     </div>

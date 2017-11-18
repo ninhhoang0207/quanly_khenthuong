@@ -12,7 +12,74 @@ $(document).ready(function () {
 function jsInEmployee() {
     $( "#addRelative" )
     addRelative();
+    themQuaTrinhCongTac();
+    suaQuaTrinhCongTac();
 }
+
+function suaQuaTrinhCongTac() {
+    $( ".suaQuaTrinhCongTac" ).click(function() {
+        var index = $(this).attr('index');
+
+        // $('.bodyqtct'+index).remove();
+        var tu_ngay = $('.collapse'+index).remove();
+        var tu_ngay = $('#thoigianCongTac'+index).attr('tungay');
+        var den_ngay = $('#thoigianCongTac'+index).attr('denngay');
+        $('#thoigianCongTac'+index).text('Sửa thông tin');
+        var congviec = $('#congviec'+index).text();
+        var ghichu = $('#ghichu'+index).text();
+        var formBody = '<div class="portlet-body">' +
+            '<div class="table-scrollable">' +
+            '<table class="table table-striped table-hover">' +
+            '<tr>'+
+            '<th> Từ ngày </th>' +
+            '<td> <input name="'+'quatrinhcongtac['+index+'][tu_ngay]" class="form-control" type="date" value="'+tu_ngay+'"> </td>' +
+            '</tr>' +
+            '<tr><th> Đến ngày </th><td> <input name="'+'quatrinhcongtac['+index+'][den_ngay]" class="form-control" type="date" value="'+den_ngay+'"> </td></tr>' +
+            '<tr><th> Công việc </th><td><input name="'+'quatrinhcongtac['+index+'][congviect]" class="form-control" style="width: 100%;border: 1px solid #ccc" value="'+congviec+'"></td></tr>' +
+            '<tr><th> Ghi chú </th><td><input name="'+'quatrinhcongtac['+index+'][ghichu]" class="form-control" style="width: 100%;border: 1px solid #ccc" value="'+ghichu+'"></td></tr>' +
+            '</table>' +
+            '</div>' +
+            '</div>' ;
+        $( ".bodyqtct"+index ).remove();
+        $( "#prependQTCT"+index ).prepend(formBody);
+    });
+}
+
+
+
+function themQuaTrinhCongTac() {
+    $( "#addQuaTrinhCongTac" ).click(function() {
+        var index = $(this).attr('index');
+        alert(index);
+        var formQuaTrinhCongTac ='  <div class="portlet box green">' +
+            '<div class="portlet-title">' +
+            '<div class="caption">' +
+            '<i class="fa fa-user"></i><span>Sửa thông tin</span> </div>' +
+            '<div class="tools">' +
+            '<a href="javascript:;" class="collapse" data-original-title="" title=""> </a>' +
+            '</div>' +
+            '</div>' +
+            '<div class="portlet-body">' +
+            '<div class="table-scrollable">' +
+            '<table class="table table-striped table-hover">' +
+            '<tr>'+
+            '<th> Từ ngày </th>' +
+            '<td> <input name="'+'quatrinhcongtac['+index+'][tu_ngay]" class="form-control" type="date" value="2017-03-04"> </td>' +
+            '</tr>' +
+            '<tr><th> Đến ngày </th><td> <input name="'+'quatrinhcongtac['+index+'][den_ngay]" class="form-control" type="date" value="2017-03-04"> </td></tr>' +
+            '<tr><th> Công việc </th><td><input name="'+'quatrinhcongtac['+index+'][congviect]" class="form-control" style="width: 100%;border: 1px solid #ccc" value="Cong Viec"></td></tr>' +
+            '<tr><th> Ghi chú </th><td><input name="'+'quatrinhcongtac['+index+'][ghichu]" class="form-control" style="width: 100%;border: 1px solid #ccc" value="Ghi chu"></td></tr>' +
+            '</table>' +
+            '</div>' +
+            '</div>' +
+            '</div>';
+
+
+        $( "#buttonAddQuaTrinhCongTac" ).prepend(formQuaTrinhCongTac);
+        $(this).attr('index',index-1);
+    });
+}
+
 
 function addRelative() {
     $( "#addRelative" ).click(function() {
@@ -39,7 +106,7 @@ function addRelative() {
             + "</tr>"
             +  "<tr>"
             + "<th> Ngày tháng năm sinh </th>"
-            +"<td><input name="+'nguoithan['+index+'][quanhe]'+" class='form-control' type='date' value='{{$nguoithan->namsinh}}'> </td>"
+            +"<td><input name="+'nguoithan['+index+'][namsinh]'+" class='form-control' type='date' value='{{$nguoithan->namsinh}}'> </td>"
             + '</tr>'
             + "<tr>"
             + "<th> Nghề nghiệp </th>"
@@ -68,7 +135,6 @@ function addRelative() {
 
 
         $( "#buttonActionRelative" ).prepend(formRelative);
-        alert(index);
         $(this).attr('index',index-1);
     });
 }
