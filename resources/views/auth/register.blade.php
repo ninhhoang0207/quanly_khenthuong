@@ -57,15 +57,15 @@
                             <label for="password-confirm" class="col-md-4 control-label">Nhập lại mật khẩu</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Chọn quyền</label>
+                            <label for="role" class="col-md-4 control-label">Loại tài khoản</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="role">
+                                <select class="form-control" name="role" required>
                                     <option selected disabled>-- Chọn loại tài khoản --</option>
                                     <option value="1">Tài khoản nhân viên</option>
                                     <option value="2">Tài khoản phòng ban</option>
@@ -73,6 +73,22 @@
                                     <option value="4">Tài khoản quản lý cấp Huyện</option>
                                     <option value="5">Tài khoản quản lý cấp Tỉnh</option>
                                 </select>
+                            </div>
+                        </div>
+                        @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('role') }}</strong>
+                        </span>
+                        @endif
+
+                        <div class="form-group">
+                            <label for="avatar" class="col-md-4 control-label">Ảnh đại diện</label>
+                            
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="file" class="form-control" name="avatar" id="avatar">
+                                <div class="form-group">
+                                    <img src="" class="img img-thumbnail" id="preview_avatar" width="500px" height="auto" style="display: none;">
+                                </div>
                             </div>
                         </div>
 
@@ -89,4 +105,60 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('form').validate({ // initialize the plugin
+            rules : {
+                password_confirmation : {
+                    equalTo : '#password',
+                },
+                avatar : {
+                    accept:"jpg,png,jpeg,bmp"
+                }
+            },
+
+            messages : {
+                email : {
+                    required : "Email không được để trống",
+                    email : "Email không đúng định dạng",
+
+                },
+                password : {
+                    required : "Mật khẩu không được để trống",
+                    minlength : "Mật khẩu phải có ít nhất 5 ký tự"
+                },
+                password_confirmation : {
+                    equalTo : "Nhập lại mật khẩu không chính xác",
+                },
+                name: {
+                    required: "Tên đăng nhập không được để trống",
+                },
+                role: {
+                    required: "Chưa chọn loại tài khoản",
+                },
+                avatar: {
+                    accept: "Ảnh tải lên phải có dạng jpg, jpeg, png hoặc bmp",
+                },
+            },
+
+        });
+     });
+</script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview_avatar').attr('src', e.target.result);
+                $('#preview_avatar').css('display', 'block');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#avatar").change(function() {
+        readURL(this);
+    });
+</script>
 @endsection
