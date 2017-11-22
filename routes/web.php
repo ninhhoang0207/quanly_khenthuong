@@ -74,4 +74,13 @@ Route::group(['prefix' => 'cuocthi'], function() {
     Route::get('delete/{id?}','Admin\CuocThiController@destroy')->name('admin.cuocthi.delete');
 });
 
+Route::group(['prefix' => 'cuocthi-file'], function() {
+    Route::get('/','Admin\CuocThiFileController@admin_index')->name('admin.cuocthifile.index');
+    Route::get('create','Admin\CuocThiFileController@create')->name('admin.cuocthifile.create');
+    Route::post('create','Admin\CuocThiFileController@store')->name('admin.cuocthifile.store');
+    Route::get('edit/{id?}','Admin\CuocThiFileController@edit')->name('admin.cuocthifile.edit');
+    Route::put('edit/{id?}','Admin\CuocThiFileController@update')->name('admin.cuocthifile.update');
+    Route::get('delete/{id?}','Admin\CuocThiFileController@destroy')->name('admin.cuocthifile.delete');
+});
+
 

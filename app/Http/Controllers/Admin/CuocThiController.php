@@ -88,7 +88,7 @@ public function store(Request $request)
         unset($data['_method']);
             $cuocthi = CuocThi::where('id', $id)->first();
             $cuocthi->update($data);
-             return redirect(route('admin.huyen.index'));
+             return redirect(route('admin.cuocthi.index'));
             Session::flash( 'success', 'Sửa thành công !!!!!');
     }       
 
@@ -117,7 +117,7 @@ public function store(Request $request)
         DB::beginTransaction();
         try {
             CuocThi::find( $id )->delete();
-            return redirect(route('admin.huyen.index'));
+            return redirect(route('admin.cuocthi.index'));
             Session::flash( 'success', 'Xóa thành công !!!!!');
             DB::commit();
         } catch(\Exception $e) {
