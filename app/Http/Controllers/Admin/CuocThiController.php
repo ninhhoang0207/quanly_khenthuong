@@ -65,34 +65,32 @@ public function store(Request $request)
         }
     }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function edit($id)
-    // {
-    //     $data = Huyen::find( $id );
-    //     $tinh = Tinh::all();
-    //     $this ->viewData = array(
-    //         'data' => $data, 
-    //         'tinh' => $tinh
-    //         );
-    //     return view ( 'admin.huyen.edit', $this->viewData );
-    // }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $data = CuocThi::find( $id );
+        $this ->viewData = array(
+            'data' => $data, 
+            );
+        return view ( 'admin.cuocthi.edit', $this->viewData );
+    }
 
   
-    // public function update( Request $request, $id )
-    // {
-    //     $data = $request->all();
-    //     unset($data['_token']);
-    //     unset($data['_method']);
-    //         $huyen = CuocThi::where('id', $id)->first();
-    //         $huyen->update($data);
-    //         Session::flash( 'success', 'Sửa thành công !!!!!');
-    //         return redirect(route('admin.huyen.index'));
-    //     }
+    public function update( Request $request, $id )
+    {
+        $data = $request->all();
+        unset($data['_token']);
+        unset($data['_method']);
+            $cuocthi = CuocThi::where('id', $id)->first();
+            $cuocthi->update($data);
+             return redirect(route('admin.huyen.index'));
+            Session::flash( 'success', 'Sửa thành công !!!!!');
+    }       
 
 //     }
 //     /**
@@ -115,4 +113,16 @@ public function store(Request $request)
 //         }
 //         return 1;
 //     }
+    public function destroy(){
+        DB::beginTransaction();
+        try {
+            CuocThi::find( $id )->delete();
+            return redirect(route('admin.huyen.index'));
+            Session::flash( 'success', 'Xóa thành công !!!!!');
+            DB::commit();
+        } catch(\Exception $e) {
+            \Log::info( $e->getMessage() );
+            DB::rollback();
+        }
+    }
 }

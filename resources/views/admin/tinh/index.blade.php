@@ -13,7 +13,7 @@
 	<div class="">
 		<div class="page-title">
 			<div class="title_left">
-				<h3>TỈNH</h3>
+				<h3>TỈNH (THÀNH PHỐ)</h3>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -23,7 +23,7 @@
 				<div class="x_panel">
 					<!-- X-title -->
 					<div class="x_title">
-						<h2>DANH SÁCH TỈNH</h2>
+						<h2>DANH SÁCH TỈNH (THÀNH PHỐ)</h2>
 						<a href="{{ route('admin.tinh.create') }}" class="btn btn-primary pull-right">Thêm mới</a>
 						<div class="clearfix"></div>
 					</div>

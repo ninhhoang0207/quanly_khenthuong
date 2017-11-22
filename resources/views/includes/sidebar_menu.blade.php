@@ -25,18 +25,22 @@
 			<div class="menu_section">
 				<h3></h3>
 				<ul class="nav side-menu">
-					<li><a><i class="fa fa-shopping-cart"></i>Tỉnh<span class="fa fa-chevron-down"></span></a>
+					<li><a><i class="fa fa-list-ul"></i>Tỉnh(Thành phố) <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="{{ route('admin.tinh.index') }}">Danh sách</a></li>
+							<li><a href="{{ route('admin.tinh.create') }}">Thêm mới</a></li>
+						</ul>
 					</li>
 					<li><a><i class="fa fa-list-ul"></i>Huyện <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="#">Danh sách</a></li>
-							<li><a href="#">Thêm mới</a></li>
+							<li><a href="{{ route('admin.huyen.index') }}">Danh sách</a></li>
+							<li><a href="{{ route('admin.huyen.create') }}">Thêm mới</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-credit-card"></i>Xã <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="#">Danh sách</a></li>
-							<li><a href="#">Thêm mới</a></li>
+							<li><a href="{{ route('admin.xa.index') }}">Danh sách</a></li>
+							<li><a href="{{ route('admin.xa.create') }}">Thêm mới</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-credit-card"></i>Phòng ban <span class="fa fa-chevron-down"></span></a>
@@ -53,8 +57,8 @@
 					</li>
 					<li><a><i class="fa fa-newspaper-o"></i>Cuộc thi <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="#">Danh sách</a></li>
-							<li><a href="#">Thêm mới</a></li>
+							<li><a href="{{ route('admin.cuocthi.index') }}">Danh sách</a></li>
+							<li><a href="{{ route('admin.cuocthi.create') }}">Thêm mới</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-newspaper-o"></i>Danh hiệu <span class="fa fa-chevron-down"></span></a>

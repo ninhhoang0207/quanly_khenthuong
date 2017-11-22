@@ -13,7 +13,7 @@
 	<div class="">
 		<div class="page-title">
 			<div class="title_left">
-				<h3>HUYỆN</h3>
+				<h3>CUỘC THI</h3>
 			</div>
 		</div>
 		<div class="clearfix"></div>
@@ -23,7 +23,7 @@
 				<div class="x_panel">
 					<!-- X-title -->
 					<div class="x_title">
-						<h2>DANH SÁCH HUYỆN</h2>
+						<h2>DANH SÁCH CUỘC THI</h2>
 						<a href="{{ route('admin.cuocthi.create') }}" class="btn btn-primary pull-right">Thêm mới</a>
 						<div class="clearfix"></div>
 					</div>
@@ -35,6 +35,9 @@
 							<thead>
 								<th>Id</th>
 								<th>Tên</th>
+								<th>Hạn Cuối</th>
+								<th>Loại Hình</th>
+								<th>Ban Tổ Chức</th>
 								<th>Chức năng</th>
 							</thead>
 							<tbody>
@@ -42,9 +45,12 @@
 								<tr>
 									<td>{{ $key+1 }}</td>
 									<td>{{ $value->ten }}</td>
+									<td>{{ $value->thoihan_thamgia }}</td>
+									<td>@if($value->loaihinh == 1)Cá nhân @else Tổ chức @endif</td>
+									<td>@if($value->ban_tochuc ==5 )Tỉnh @elseif($value->ban_tochuc ==5) Huyện @else Xã @endif</td>
 									<td>
 										<a href="{{ route('admin.cuocthi.edit', ['id'=>$value->id]) }}" class="btn btn-warning btn-xs">Sửa</a>
-										<a onclick="getModalDelete('{{ route('admin.cuocthi.delete', ['id'=>$value->id]) }}')" class="btn btn-danger btn-xs">Xóa</a>
+										<a href="{{ route('admin.cuocthi.delete', ['id'=>$value->id]) }}" class="btn btn-danger btn-xs">Xóa</a>
 									</td>
 								</tr>
 								@endforeach

@@ -34,7 +34,7 @@
 						<table class="table" id="table-category">
 							<thead>
 								<th>Id</th>
-								<th>Tỉnh</th>
+								<th>Tỉnh(Thành phố) </th>
 								<th>Huyện</th>
 								<th>Tên</th>
 								<th>Chức năng</th>

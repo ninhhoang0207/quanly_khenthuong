@@ -45,7 +45,7 @@
                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ten">Thời hạn tham gia<span class="required">*</span>
                      </label>
                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="thoihan_thamgia" id="thoihan_thamgia" required="required" class="form-control col-md-7 col-xs-12">
+                        <input id="thoihan_thamgia" type="text" name="thoihan_thamgia" class="form-control col-md-7 col-xs-12" placeholder="">
                         @if($errors->has('thoihan_thamgia'))
                                   <span class="help-block">
                                       <strong style="color: red;">{{$errors->first('thoihan_thamgia')}}</strong>
@@ -61,19 +61,6 @@
                            <option disabled selected id="offer_type_none"></option>
                            <option value="1">Cá nhân</option>
                            <option value="2">Tổ chức</option>
-                        </select>
-                     </div>
-                  </div>
-
-                  <div class="form-group">
-                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="offer_type">Ban tổ chức<span class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select class="form-control" id="ban_tochuc" name="ban_tochuc" required>
-                           <option disabled selected id="offer_type_none"></option>
-                           <option value="5">Tỉnh</option>
-                           <option value="4">Huyện</option>
-                           <option value="3">Xã</option>
                         </select>
                      </div>
                   </div>
@@ -113,7 +100,7 @@
                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ten">Mô tả<span class="required">*</span>
                      </label>
                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" name="mota" id="mota" required="required" class="form-control col-md-7 col-xs-12">
+                        <textarea type="text" name="mota" id="mota" class="form-control col-md-7 col-xs-12" rows="5"></textarea>
                      </div>
                   </div>  
                   <div class="form-group">

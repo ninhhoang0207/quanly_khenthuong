@@ -71,7 +71,7 @@ Route::group(['prefix' => 'cuocthi'], function() {
     Route::post('create','Admin\CuocThiController@store')->name('admin.cuocthi.store');
     Route::get('edit/{id?}','Admin\CuocThiController@edit')->name('admin.cuocthi.edit');
     Route::put('edit/{id?}','Admin\CuocThiController@update')->name('admin.cuocthi.update');
-    Route::get('delete/{id?}','Admin\CuocThiController@delete')->name('admin.cuocthi.delete');
+    Route::get('delete/{id?}','Admin\CuocThiController@destroy')->name('admin.cuocthi.delete');
 });
 
 

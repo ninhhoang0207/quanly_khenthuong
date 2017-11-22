@@ -26,6 +26,7 @@
 	<link href="{{asset('build/css/custom.css')}}" rel="stylesheet">
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
+	<link rel="stylesheet prefetch" href="{{url('css/bootstrap-datepicker.css')}}">
 
 	@yield('header')
 </head>
@@ -91,5 +92,18 @@
 	toastr.error('{{ Session::get("error") }}');
 	@endif
 </script>
+<script>
+      jQuery(document).ready(function($){
+        var thoihan_thamgia=$('input[name="thoihan_thamgia"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        thoihan_thamgia.datepicker({
+          format: 'dd/mm/yyyy',
+          container: container,
+          todayHighlight: true,
+          autoclose: true,
+          startDate: '+0d',
+        });
+    });
+    </script>
 @stack('scripts')
 </html>
